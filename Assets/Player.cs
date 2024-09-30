@@ -1,17 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody rb;
+    [SerializeField] private Rigidbody rb;
     // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (rb.velocity == Vector3.zero && Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity = new Vector3(0, 10f, 0);
         }
     }
-    
 }
