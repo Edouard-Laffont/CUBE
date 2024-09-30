@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,11 @@ public class Player : MonoBehaviour
 {
     private float counter = 1f;
     public MeshRenderer a;
-    public Rigidbody rb;
+    [SerializeField] private Rigidbody rb;
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (rb.velocity == Vector3.zero && Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity = new Vector3(0, 10f, 0);
             if (counter == 1)
@@ -50,5 +51,4 @@ public class Player : MonoBehaviour
             }
         }
     }
-    
 }
